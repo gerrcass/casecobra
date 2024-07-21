@@ -26,7 +26,10 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);
   const [showConfetti, setShowConfetti] = useState<boolean>(false);
 
-  useEffect(() => setShowConfetti(true), []);
+  useEffect(() => {
+    console.log("👀 'user' on useEffect: ", user);
+    return setShowConfetti(true);
+  }, []);
 
   const { color, model, finish, material } = configuration;
 
@@ -60,11 +63,13 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
   });
 
   const handleCheckout = () => {
+    console.log("👀 'user' on handleCheckout:", user);
     if (user) {
       // create payment session
       createPaymentSession({ configId: configurationId });
     } else {
       // need to log in
+      console.log("🔥user:", user);
       localStorage.setItem("configurationId", configurationId);
       setIsLoginModalOpen(true);
     }

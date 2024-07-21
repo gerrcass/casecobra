@@ -43,6 +43,6 @@ export function constructMetadata({
       creator: "@gerrcass",
     },
     icons,
-    metadataBase: new URL("https://nextjs-casecobra.vercel.app/"),
+    metadataBase: new URL("https://casecobra-five-beta.vercel.app/"),
   };
 }
